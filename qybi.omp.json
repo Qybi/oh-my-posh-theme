@@ -1,0 +1,55 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "root",
+          "style": "plain",
+          "template": "root <#ffffff>in</> ",
+          "foreground": "#E06C75"
+        },
+        {
+          "type": "session",
+          "style": "diamond",
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} <#ffffff>in</> ",
+          "foreground": "#009df8"
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "properties": {
+            "style": "full"
+          },
+          "foreground": "#55B9C4"
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "template": "<#ffffff>on</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "properties": {
+            "fetch_status": true
+          },
+          "foreground": "#C678DD"
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "template": "x ",
+          "foreground": "#C94A16"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "➜ ",
+          "foreground": "#63F08C"
+        }
+      ]
+    }
+  ]
+}
